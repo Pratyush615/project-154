@@ -1,0 +1,28 @@
+AFRAME.registerComponent("terrain-fish", {
+    init: function () {
+      for (var i = 1; i <= 20; i++) {
+        const id = `coin${i}`;
+        const posX = Math.random() * 100 + -50;
+        const posY = Math.random() * 5 + 15;
+        const posZ = Math.random() * 60 + -40;
+        const position = { x: posX, y: posY, z: posZ };
+
+        this.createFish(id, position);
+      }
+    },
+  
+    createFish: function (id, position) {
+        const treasureEntity = document.querySelector('#volcano_island');
+    
+        var fishEl = document.createElement('a-entity')
+        fishEl.setAttribute('id',id)
+        fishEl.setAttribute('position',position)
+        fishEl.setAttribute('scale',{x:.3,y:.3,z:.3})
+        fishEl.setAttribute('gltf-model','./assets/fish/scene.gltf')
+        fishEl.setAttribute('animation-mixer',{})
+
+
+        treasureEntity.appendChild(fishEl)
+      }
+  });
+  
